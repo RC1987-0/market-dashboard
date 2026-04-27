@@ -8,6 +8,13 @@ import streamlit as st
 from datetime import datetime
 import config
 
+st.set_page_config(
+    page_title="Market Dashboard",
+    page_icon="📈",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 # Inject Google credentials from Streamlit Secrets when running on the cloud
 try:
     _token = st.secrets.get("GOOGLE_TOKEN_JSON")
@@ -15,13 +22,6 @@ try:
         os.environ["GOOGLE_TOKEN_JSON"] = _token
 except Exception:
     pass
-
-st.set_page_config(
-    page_title="Market Dashboard",
-    page_icon="📈",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
 # ── Custom CSS ─────────────────────────────────────────────────────────────────
 st.markdown("""
